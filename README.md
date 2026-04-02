@@ -1,7 +1,7 @@
 # FOODSHARE — Restaurant Web App
 **ITEC 3230 Group Project** | Figma → HTML/CSS Implementation
 
-Helya Sabetpour 
+Helya Sabetpour -
 Elina Najafi
 
 Figma Link : https://www.figma.com/design/Vj41cmQkjJHGwiJRgiCUjP/Untitled?node-id=0-1&t=XaE5RmyVmzYxb0W0-1
