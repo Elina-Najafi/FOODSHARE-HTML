@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review your cart and confirm your order at Fast Casual Kitchen.">
+  <title>Cart — Fast Casual Kitchen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="cart-page">
+
+  <!-- HEADER -->
+    <!-- ═══════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-back">
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Back
+      </a>
+    </div>
+    <div class="nav-icons">
+      <a href="menu.html" class="nav-icon-btn" title="View Menu" aria-label="View Menu">
+        <svg class="icon-img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <span class="nav-label">view menu</span>
+      </a>
+      <a href="Cart.html" class="nav-icon-btn" title="Cart" aria-label="Cart" id="cart-btn">
+        <svg class="icon-img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ITEM CARD -->
+  <div class="cart-card">
+
+    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Burrito Bowl" class="cart-img">
+
+    <div class="cart-details">
+      <h4 class="title">Burrito Bowl</h4>
+
+      <p>Size: Small</p>
+      <p>Protein: Chicken</p>
+      <p>Toppings: Lettuce, tomato</p>
+      <p>Price: $17.99</p>
+      <p>Quantity: 1</p>
+    </div>
+
+    <!-- QUANTITY -->
+    <div class="quantity">
+      <button onclick="changeQty(-1)">−</button>
+      <button onclick="changeQty(1)">+</button>
+    </div>
+
+  </div>
+
+  <!-- SUBTOTAL -->
+  <div class="subtotal">
+    Estimated Subtotal: 36.81
+  </div>
+
+  <!-- ACTION BUTTONS -->
+  <button class="confirm btn" onclick="window.location.href='checkout.html'">
+    Confirm
+  </button>
+
+  <button class="cancel btn" onclick="window.location.href='menu.html'">
+    Cancel
+  </button>
+
+</div>
+
+<script>
+let qty = 1;
+function changeQty(change) {
+  qty += change;
+  if (qty < 1) qty = 1;
+}
+</script>
+
+</body>
+</html>

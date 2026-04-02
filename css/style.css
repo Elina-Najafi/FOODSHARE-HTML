@@ -1,0 +1,962 @@
+/* ============================================================
+   style.css — Fast Casual Kitchen
+   Figma tokens + fluid/responsive sizing for real browsers
+   ============================================================
+
+   DESIGN TOKENS (from Figma — 1440px canvas):
+   --bg:           #fffcf6   warm cream
+   --orange:       #f96312   primary CTA / prices
+   --orange-alt:   #fc8a06   active filter button
+   --border:       #d0cccc   card & input borders
+   --text-dark:    #000000
+   --text-muted:   #595959
+   --card-shadow:  0px 4px 4px rgba(0,0,0,0.25)
+   --nav-shadow:   0px 4px 6px rgba(0,0,0,0.25)
+
+   ============================================================ */
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #fffcf6;
+  color: #000;
+  min-height: 100vh;
+}
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+button { cursor: pointer; font-family: inherit; border: none; }
+
+
+/* ============================================================
+   NAVBAR
+   Figma: 1440×131px | bg #fffcf6 | border #d0cccc
+   ============================================================ */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 80px;                         /* scaled from 131px for real screens */
+  background-color: #fffcf6;
+  border-bottom: 1px solid #d0cccc;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+/* ← Back link */
+.nav-left { display: flex; align-items: center; }
+.nav-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #000;
+}
+.arrow-icon {
+  width: 18px;
+  height: auto;
+  transform: rotate(180deg);
+}
+
+/* Right icon cluster */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+/* Each icon box — Figma: 87×87 rounded square */
+.nav-icon-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  background-color: #fffcf6;
+  border: 1px solid #d0cccc;
+  border-radius: 8px;
+  color: #000;
+}
+.icon-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+.nav-label {
+  font-size: 9px;
+  color: #000;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   LANDING PAGE
+   Figma: 1440×1024 — cream bg, centred content, food bg image
+   ============================================================ */
+.landing-page { overflow: hidden; }
+
+/* Full-viewport hero */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 80px;               /* below navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fffcf6;
+}
+
+/* Food background — plain cover, 30% opacity */
+.hero-bg {
+  position: absolute;
+  top: 80px; left: 0; right: 0; bottom: 0;
+  overflow: hidden;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+}
+
+/* Content stack — centred */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px 60px;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Account circle — Figma: 150×150 */
+.hero-icon {
+  width: clamp(80px, 10.4vw, 150px);
+  height: clamp(80px, 10.4vw, 150px);
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.hero-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* "Fast Casual Kitchen" — Figma: Inter ExtraBold 96px */
+.hero-title {
+  font-size: clamp(32px, 5.8vw, 84px);
+  font-weight: 800;
+  line-height: 1.05;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+/* "Fresh. Fast. Customizable." — Figma: 48px bold #595959 */
+.hero-tagline {
+  font-size: clamp(18px, 2.8vw, 40px);
+  font-weight: 700;
+  color: #595959;
+  margin-bottom: 12px;
+}
+
+/* Description — Figma: 36px #595959 */
+.hero-desc {
+  font-size: clamp(14px, 1.8vw, 26px);
+  font-weight: 500;
+  color: #595959;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+/* "Order Now" — Figma: 697×65px, orange, radius 8 */
+.btn-order-now {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(240px, 48vw, 697px);
+  height: clamp(46px, 4.5vw, 65px);
+  background-color: #f96312;
+  color: #fff;
+  font-size: clamp(16px, 2vw, 28px);
+  font-weight: 700;
+  border-radius: 8px;
+  transition: background-color 0.15s;
+}
+.btn-order-now:hover { background-color: #d9540e; }
+
+
+/* ============================================================
+   INNER PAGES — push content below fixed navbar
+   ============================================================ */
+.inner-page { padding-top: 80px; }
+
+
+/* ============================================================
+   FILTER BAR  (menu.html)
+   Figma: second 131px bar — bg #fffcf6, border #d0cccc
+   ============================================================ */
+.filter-bar {
+  position: sticky;
+  top: 80px;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 24px;
+  background-color: #fffcf6;
+  border-bottom: 1px solid #d0cccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+/* Filter buttons — Figma: 52px tall, radius 10 */
+.filter-btn {
+  height: 38px;
+  padding: 0 18px;
+  background-color: #fffcf6;
+  border: 1px solid #d0cccc;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.filter-btn.active {
+  background-color: #fc8a06;
+  border-color: #fc8a06;
+  color: #fff;
+  font-weight: 600;
+}
+.filter-btn:hover:not(.active) { background-color: #f0ece2; }
+
+
+/* ============================================================
+   MENU GRID  (menu.html)
+   Figma: 3 cols × 450px | gap ~10px | left margin 31px
+   ============================================================ */
+.menu-main {
+  padding: 20px 24px 60px;
+}
+
+.menu-grid {
+  /* Bootstrap row g-3 handles the grid layout */
+}
+
+/* Individual card — Figma: 450×414 */
+.menu-card {
+  background-color: #fffcf6;
+  border: 1px solid #d0cccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Food image — Figma: 450×267 (59% of card height) */
+.card-img-wrap {
+  width: 100%;
+  aspect-ratio: 450 / 267;            /* maintains Figma proportion */
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Card body — Figma: 33px h-padding, 13px v-padding */
+.card-body {
+  padding: 13px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* "Buffalo Chicken wrap   $12.99" — Figma: bold 24px, h=29 */
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: clamp(13px, 1.2vw, 17px);
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+.card-price {
+  color: #f96312;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.card-desc {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+/* Category badge — Figma: 100×27, radius 10 */
+.card-badge {
+  display: inline-block;
+  padding: 2px 12px;
+  border: 1px solid #d0cccc;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+  background: #fffcf6;
+  margin-top: auto;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+/* "Customize" button — Figma: 384×40, full width, orange */
+.btn-customize {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 36px;
+  background-color: #f96312;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: background-color 0.15s;
+}
+.btn-customize:hover { background-color: #d9540e; }
+
+[data-cat].hidden { display: none !important; }
+
+.no-results {
+  text-align: center;
+  padding: 60px;
+  color: #595959;
+  font-size: 16px;
+}
+
+
+/* ============================================================
+   CUSTOMIZE PAGE  (customize.html)
+   Figma: sections at x=122, w=1200 on 1444px canvas
+   → side padding ≈ 122/1444 = 8.5% each side
+   ============================================================ */
+.customize-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Each card section — Figma: border #d0cccc, radius 10, shadow */
+.customize-section {
+  background-color: #fffcf6;
+  border: 1px solid #d0cccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.10);
+  padding: 20px 28px;
+}
+
+/* ── Item header: name, badge, price ── */
+.item-name {
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 700;
+  color: #f96312;
+  margin-bottom: 10px;
+}
+.item-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.item-badge {
+  display: inline-block;
+  padding: 3px 14px;
+  border: 1px solid #d0cccc;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  background: #fffcf6;
+}
+.item-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f96312;
+}
+
+/* ── Section title ── */
+.section-title {
+  font-size: clamp(15px, 1.4vw, 18px);
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+/* ── Radio group (Size, Protein) ── */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;                           /* Figma: 26px between boxes = 20px box + 6px gap */
+}
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  cursor: pointer;
+  position: relative;
+}
+.radio-item input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+/* Custom square box — Figma: 20×20, #f5f5f5, border #d0cccc, radius 5 */
+.radio-box {
+  display: inline-block;
+  width: 18px; height: 18px;
+  background-color: #f5f5f5;
+  border: 1px solid #d0cccc;
+  border-radius: 4px;
+  flex-shrink: 0;
+  position: relative;
+  transition: background-color 0.1s;
+}
+.radio-item input[type="radio"]:checked + .radio-box {
+  background-color: #f96312;
+  border-color: #f96312;
+}
+.radio-item input[type="radio"]:checked + .radio-box::after {
+  content: '';
+  position: absolute;
+  top: 2px; left: 5px;
+  width: 5px; height: 8px;
+  border: 2px solid #fff;
+  border-top: none; border-left: none;
+  transform: rotate(45deg);
+}
+
+/* ── Checkbox group (Toppings, Sauces) ── */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  cursor: pointer;
+  position: relative;
+}
+.checkbox-item input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+.checkbox-box {
+  display: inline-block;
+  width: 18px; height: 18px;
+  background-color: #f5f5f5;
+  border: 1px solid #d0cccc;
+  border-radius: 4px;
+  flex-shrink: 0;
+  position: relative;
+  transition: background-color 0.1s;
+}
+.checkbox-item input[type="checkbox"]:checked + .checkbox-box {
+  background-color: #f96312;
+  border-color: #f96312;
+}
+.checkbox-item input[type="checkbox"]:checked + .checkbox-box::after {
+  content: '';
+  position: absolute;
+  top: 2px; left: 5px;
+  width: 5px; height: 8px;
+  border: 2px solid #fff;
+  border-top: none; border-left: none;
+  transform: rotate(45deg);
+}
+
+/* ── Spice Level — Figma: 5 buttons 200×50 gap 20px ── */
+.spice-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.spice-btn {
+  flex: 1;
+  min-width: 100px;
+  max-width: 200px;
+  height: 42px;
+  background-color: #fffcf6;
+  border: 1px solid #d0cccc;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.spice-btn:hover { background-color: #fef3ec; border-color: #f96312; }
+.spice-btn.active {
+  background-color: #f96312;
+  border-color: #f96312;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ── Quantity stepper — Figma: - / 1 / + in boxes ── */
+.qty-row {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px solid #d0cccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.qty-btn {
+  width: 44px;
+  height: 44px;
+  background-color: #fffcf6;
+  border: none;
+  border-right: 1px solid #d0cccc;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s;
+}
+.qty-btn:last-child {
+  border-right: none;
+  border-left: 1px solid #d0cccc;
+}
+.qty-btn:hover { background-color: #f0ece2; }
+.qty-box {
+  width: 56px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  background: #fff;
+}
+
+/* ── CTA Buttons — Figma: 1200×65, orange / cancel ── */
+.cta-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+/* "Add to Cart - $17.99" — Figma: orange #f96312 */
+.btn-add-to-cart {
+  width: 100%;
+  height: 52px;
+  background-color: #f96312;
+  color: #fff;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+.btn-add-to-cart:hover { background-color: #d9540e; }
+
+/* "Cancel" — Figma: cream bg, orange border + text */
+.btn-cancel {
+  display: block;
+  width: 100%;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+  background-color: #fffcf6;
+  color: #f96312;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 700;
+  border: 1px solid #f96312;
+  border-radius: 8px;
+  transition: background-color 0.15s;
+}
+.btn-cancel:hover { background-color: #fef3ec; }
+
+
+/* ============================================================
+   SPICE WARNING MODAL
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.modal-box {
+  background: #fffcf6;
+  border: 1px solid #d0cccc;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 560px;
+  padding: 36px 40px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+.modal-text {
+  font-size: 15px;
+  font-weight: 400;
+  color: #000;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+.modal-btn {
+  height: 42px;
+  padding: 0 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid #d0cccc;
+}
+.modal-cancel {
+  background-color: #fffcf6;
+  color: #000;
+}
+.modal-cancel:hover { background-color: #f0ece2; }
+.modal-confirm {
+  background-color: #f96312;
+  color: #fff;
+  border-color: #f96312;
+}
+.modal-confirm:hover { background-color: #d9540e; }
+
+
+/* ============================================================
+   CART PAGE  (Cart.html)
+   ============================================================ */
+.cart-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 24px 40px;
+}
+
+.cart-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #fffcf6;
+  border: 1px solid #d0cccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.cart-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.cart-details { flex: 1; }
+
+.title {
+  color: #f96312;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.quantity {
+  display: flex;
+  gap: 8px;
+}
+
+.quantity button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #d0cccc;
+  background: #fffcf6;
+  border-radius: 6px;
+}
+
+.subtotal {
+  text-align: right;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 24px 0;
+}
+
+.confirm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 52px;
+  background-color: #f96312;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  margin-top: 8px;
+  transition: background-color 0.15s;
+}
+.confirm:hover { background-color: #d9540e; }
+
+.cancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 52px;
+  margin-top: 10px;
+  background-color: #fffcf6;
+  color: #f96312;
+  border: 1px solid #f96312;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  transition: background-color 0.15s;
+}
+.cancel:hover { background-color: #fef3ec; }
+
+
+/* ============================================================
+   CHECKOUT & THANK YOU PAGES  (checkout.html, thankyou.html)
+   ============================================================ */
+.checkout-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 100px 24px 40px;
+}
+
+.summary-box {
+  background: #fffcf6;
+  border: 1px solid #d0cccc;
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.summary-box h5 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.row-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 6px 0;
+}
+
+.row-line + .row-line {
+  border-top: 1px solid #f0ece2;
+}
+
+.row-line.total {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  border-top: 1px solid #d0cccc !important;
+  margin-top: 4px;
+  padding-top: 10px;
+}
+
+.checkout-page .section-title {
+  color: #f96312;
+  margin: 15px 0 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #d0cccc;
+  background: #fff;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #000;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.form-group input:focus {
+  border-color: #f96312;
+}
+
+.payment-icons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.pay-option {
+  background: #fffcf6;
+  border: 1px solid #d0cccc;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pay-option:hover { background: #f0ece2; }
+
+.address-dropdown {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 8px;
+  border: 1px solid #d0cccc;
+  background: #fff;
+  margin-bottom: 24px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #000;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.address-dropdown:focus {
+  border-color: #f96312;
+}
+
+.map-img {
+  width: 60%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  /* Bootstrap col-sm-6 handles 2-col layout */
+  .hero-content { padding: 24px 20px 40px; }
+}
+
+@media (max-width: 600px) {
+  .navbar { height: 60px; padding: 0 16px; }
+  .nav-icon-btn { width: 42px; height: 42px; }
+  .icon-img { width: 22px; height: 22px; }
+  .nav-label { display: none; }
+  .inner-page { padding-top: 60px; }
+  .filter-bar { top: 60px; gap: 6px; padding: 10px 16px; }
+  .filter-btn { font-size: 12px; height: 32px; padding: 0 12px; }
+  /* Bootstrap col-12 handles 1-col mobile layout */
+  .menu-main { padding: 14px 16px 40px; }
+  .customize-main { padding: 14px 16px 40px; }
+  .spice-btns { gap: 8px; }
+  .spice-btn { max-width: 100%; }
+  .cart-page { padding: 80px 16px 32px; }
+  .checkout-page { padding: 80px 16px 32px; }
+  .cart-card { flex-direction: column; align-items: flex-start; }
+  .cart-img { width: 100%; height: 180px; }
+}
+
+/* ============================================================
+   BOOTSTRAP OVERRIDES — keep brand identity
+   ============================================================ */
+
+/* card-badge: brand orange background, white text, no border */
+.card-badge.badge {
+  background-color: #f96312 !important;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 3px 8px;
+  border: none;
+}
+
+/* btn-customize: override Bootstrap btn to our brand style */
+.btn-customize.btn {
+  box-sizing: border-box;
+  display: block;
+  text-align: center;
+  background-color: #f96312;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 8px 0;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+  border: none;
+  transition: background-color 0.15s;
+}
+.btn-customize.btn:hover { background-color: #d9540e; color: #fff; }
+
+/* form-control / form-select: match brand border */
+.form-control,
+.form-select {
+  border: 1px solid #d0cccc;
+  background-color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  border-radius: 6px;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: #f96312;
+  box-shadow: 0 0 0 3px rgba(249, 99, 18, 0.15);
+}
+
+/* confirm/cancel: keep existing styles, just reset btn padding override */
+.confirm.btn,
+.cancel.btn {
+  font-family: 'Inter', sans-serif;
+}

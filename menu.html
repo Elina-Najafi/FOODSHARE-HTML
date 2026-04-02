@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse our menu of wraps and bowls. Filter by category and customize your order.">
+  <title>Fast Casual Kitchen — Menu</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="inner-page">
+
+  <!-- ═══════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-back">
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Back
+      </a>
+    </div>
+    <div class="nav-icons">
+      <a href="menu.html" class="nav-icon-btn" title="View Menu" aria-label="View Menu">
+        <svg class="icon-img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <span class="nav-label">view menu</span>
+      </a>
+      <a href="Cart.html" class="nav-icon-btn" title="Cart" aria-label="Cart" id="cart-btn">
+        <svg class="icon-img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       FILTER BAR (below navbar)
+  ═══════════════════════════════════════ -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-cat="all">All</button>
+    <button class="filter-btn" data-cat="wraps">Wraps</button>
+    <button class="filter-btn" data-cat="bowls">Bowls</button>
+    <button class="filter-btn" data-cat="side">Side</button>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       MENU GRID
+  ═══════════════════════════════════════ -->
+  <main class="menu-main">
+    <div class="menu-grid row g-3">
+
+      <!-- ── Card 1: Buffalo Chicken Wrap ── -->
+      <div class="col-12 col-sm-6 col-lg-4" data-cat="wraps">
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <img src="assets/images/buffalo-chicken-wrap.jpg"
+                 alt="Buffalo Chicken Wrap" class="card-img" />
+          </div>
+          <div class="card-body">
+            <p class="card-title">
+              Buffalo Chicken wrap
+              <span class="card-price">$12.99</span>
+            </p>
+            <p class="card-desc">Crispy buffalo-glazed chicken, shredded lettuce, tomato, and creamy ranch wrapped in a warm flour tortilla.</p>
+            <span class="card-badge badge">Wraps</span>
+            <a href="customize.html?item=buffalo-chicken-wrap" class="btn-customize btn">Customize</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 2: Chicken Shawarma ── -->
+      <div class="col-12 col-sm-6 col-lg-4" data-cat="wraps">
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <img src="assets/images/chicken-Shawarma.jpg"
+                 alt="Chicken Shawarma" class="card-img" />
+          </div>
+          <div class="card-body">
+            <p class="card-title">
+              Chicken Shawarma
+              <span class="card-price">$12.99</span>
+            </p>
+            <p class="card-desc">Tender spiced chicken with garlic sauce, pickles, and fresh veggies tucked into a toasted flatbread wrap.</p>
+            <span class="card-badge badge">Wraps</span>
+            <a href="customize.html?item=chicken-shawarma" class="btn-customize btn">Customize</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 3: Grain Bowl ── -->
+      <div class="col-12 col-sm-6 col-lg-4" data-cat="bowls">
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <img src="assets/images/grain-bowl.jpg"
+                 alt="Grain Bowl" class="card-img" />
+          </div>
+          <div class="card-body">
+            <p class="card-title">
+              Grain Bowl
+              <span class="card-price">$15.00</span>
+            </p>
+            <p class="card-desc">Wholesome grains topped with roasted veggies, your choice of protein, and a drizzle of house sauce.</p>
+            <span class="card-badge badge">Bowls</span>
+            <a href="customize.html?item=grain-bowl" class="btn-customize btn">Customize</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 4: Burrito Bowl ── -->
+      <div class="col-12 col-sm-6 col-lg-4" data-cat="bowls">
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <img src="assets/images/burrito-bowl.jpg"
+                 alt="Burrito Bowl" class="card-img" />
+          </div>
+          <div class="card-body">
+            <p class="card-title">
+              Burrito Bowl
+              <span class="card-price">$17.99</span>
+            </p>
+            <p class="card-desc">Seasoned rice and black beans topped with your choice of protein, pico de gallo, sour cream, and guacamole.</p>
+            <span class="card-badge badge">Bowls</span>
+            <a href="customize.html?item=burrito-bowl" class="btn-customize btn">Customize</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 5: Spicy Tuna Wrap ── -->
+      <div class="col-12 col-sm-6 col-lg-4" data-cat="wraps">
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <img src="assets/images/spicy-tuna-wrap.jpg"
+                 alt="Spicy Tuna Wrap" class="card-img" />
+          </div>
+          <div class="card-body">
+            <p class="card-title">
+              Spicy Tuna Wrap
+              <span class="card-price">$13.99</span>
+            </p>
+            <p class="card-desc">Seared spicy tuna with avocado, cucumber, sriracha mayo, and crispy wonton strips in a whole wheat wrap.</p>
+            <span class="card-badge badge">Wraps</span>
+            <a href="customize.html?item=spicy-tuna-wrap" class="btn-customize btn">Customize</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 6: Caesar Wrap ── -->
+      <div class="col-12 col-sm-6 col-lg-4" data-cat="wraps">
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <img src="assets/images/caesar-wrap.jpg"
+                 alt="Caesar Wrap" class="card-img" />
+          </div>
+          <div class="card-body">
+            <p class="card-title">
+              Caesar Wrap
+              <span class="card-price">$11.99</span>
+            </p>
+            <p class="card-desc">Grilled chicken, romaine lettuce, parmesan shavings, and house Caesar dressing folded in a toasted spinach tortilla.</p>
+            <span class="card-badge badge">Wraps</span>
+            <a href="customize.html?item=caesar-wrap" class="btn-customize btn">Customize</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 7: Protein Bowl ── -->
+      <div class="col-12 col-sm-6 col-lg-4" data-cat="bowls">
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <img src="assets/images/protein-bowl.jpg"
+                 alt="Protein Bowl" class="card-img" />
+          </div>
+          <div class="card-body">
+            <p class="card-title">
+              Protein Bowl
+              <span class="card-price">$16.99</span>
+            </p>
+            <p class="card-desc">Double protein on a base of brown rice, topped with edamame, shredded carrots, and a sesame ginger dressing.</p>
+            <span class="card-badge badge">Bowls</span>
+            <a href="customize.html?item=protein-bowl" class="btn-customize btn">Customize</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 8: Side Salad ── -->
+      <div class="col-12 col-sm-6 col-lg-4" data-cat="side">
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <img src="assets/images/side-salad.jpg"
+                 alt="Side Salad" class="card-img" />
+          </div>
+          <div class="card-body">
+            <p class="card-title">
+              Side Salad
+              <span class="card-price">$5.99</span>
+            </p>
+            <p class="card-desc">Mixed greens, cherry tomatoes, cucumber, and red onion with your choice of dressing on the side.</p>
+            <span class="card-badge badge">Side</span>
+            <a href="customize.html?item=side-salad" class="btn-customize btn">Customize</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 9: Loaded Fries ── -->
+      <div class="col-12 col-sm-6 col-lg-4" data-cat="side">
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <img src="assets/images/loaded-fries.jpg"
+                 alt="Loaded Fries" class="card-img" />
+          </div>
+          <div class="card-body">
+            <p class="card-title">
+              Loaded Fries
+              <span class="card-price">$6.99</span>
+            </p>
+            <p class="card-desc">Crispy seasoned fries topped with melted cheddar, jalapeños, sour cream, and a drizzle of chipotle sauce.</p>
+            <span class="card-badge badge">Side</span>
+            <a href="customize.html?item=loaded-fries" class="btn-customize btn">Customize</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 10: Garlic Bread ── -->
+      <div class="col-12 col-sm-6 col-lg-4" data-cat="side">
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <img src="assets/images/garlic-bread.jpg"
+                 alt="Garlic Bread" class="card-img" />
+          </div>
+          <div class="card-body">
+            <p class="card-title">
+              Garlic Bread
+              <span class="card-price">$3.99</span>
+            </p>
+            <p class="card-desc">Toasted flatbread brushed with herb butter and roasted garlic, served warm with a side of marinara.</p>
+            <span class="card-badge badge">Side</span>
+            <a href="customize.html?item=garlic-bread" class="btn-customize btn">Customize</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /menu-grid -->
+
+    <!-- Empty state -->
+    <div class="no-results" id="no-results" style="display:none;">
+      <p>No items found in this category.</p>
+    </div>
+
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

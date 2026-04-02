@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Customize your meal with your choice of size, protein, toppings, and spice level.">
+  <title>Fast Casual Kitchen — Customize</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="inner-page">
+
+  <!-- ═══════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════ -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="menu.html" class="nav-back">
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Back
+      </a>
+    </div>
+    <div class="nav-icons">
+      <a href="menu.html" class="nav-icon-btn" title="View Menu" aria-label="View Menu">
+        <svg class="icon-img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <span class="nav-label">view menu</span>
+      </a>
+      <a href="Cart.html" class="nav-icon-btn" title="Cart" aria-label="Cart">
+        <svg class="icon-img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       CUSTOMIZE CONTENT
+  ═══════════════════════════════════════ -->
+  <main class="customize-main">
+
+    <!-- ── SECTION 1: Item Info ── -->
+    <div class="customize-section item-header-section">
+      <h2 class="item-name" id="item-name">Burrito Bowl</h2>
+      <div class="item-meta">
+        <span class="item-badge" id="item-badge">Bowls</span>
+        <span class="item-price" id="item-price">$17.99</span>
+      </div>
+    </div>
+
+    <!-- ── SECTION 2: Select Size ── -->
+    <div class="customize-section">
+      <h3 class="section-title">Select Size:</h3>
+      <div class="radio-group">
+        <label class="radio-item">
+          <input type="radio" name="size" value="small" />
+          <span class="radio-box"></span>
+          Small
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="size" value="medium" checked />
+          <span class="radio-box"></span>
+          Medium
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="size" value="large" />
+          <span class="radio-box"></span>
+          Large
+        </label>
+      </div>
+    </div>
+
+    <!-- ── SECTION 3: Protein ── -->
+    <div class="customize-section">
+      <h3 class="section-title">Protein:</h3>
+      <div class="radio-group">
+        <label class="radio-item">
+          <input type="radio" name="protein" value="chicken" checked />
+          <span class="radio-box"></span>
+          Chicken
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="protein" value="beef" />
+          <span class="radio-box"></span>
+          Beef
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="protein" value="salmon" />
+          <span class="radio-box"></span>
+          Salmon
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="protein" value="tuna" />
+          <span class="radio-box"></span>
+          Tuna
+        </label>
+      </div>
+    </div>
+
+    <!-- ── SECTION 4: Select Toppings ── -->
+    <div class="customize-section">
+      <h3 class="section-title">Select Toppings</h3>
+      <div class="checkbox-group">
+        <label class="checkbox-item">
+          <input type="checkbox" name="toppings" value="lettuce" />
+          <span class="checkbox-box"></span>
+          Lettuce
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="toppings" value="tomato" />
+          <span class="checkbox-box"></span>
+          Tomato
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="toppings" value="onions" />
+          <span class="checkbox-box"></span>
+          Onions
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="toppings" value="black-beans" />
+          <span class="checkbox-box"></span>
+          Black Beans
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="toppings" value="corn" />
+          <span class="checkbox-box"></span>
+          Corn
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="toppings" value="cheese" />
+          <span class="checkbox-box"></span>
+          Cheese
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="toppings" value="guacamole" />
+          <span class="checkbox-box"></span>
+          Guacamole
+        </label>
+      </div>
+    </div>
+
+    <!-- ── SECTION 5: Spice Level ── -->
+    <div class="customize-section spice-section">
+      <h3 class="section-title">Spice Level:</h3>
+      <div class="spice-btns">
+        <button class="spice-btn active" data-level="no-spice">No Spice</button>
+        <button class="spice-btn" data-level="mild">Mild</button>
+        <button class="spice-btn" data-level="medium">Medium</button>
+        <button class="spice-btn" data-level="hot">
+          Hot <span class="pepper-icon">🌶️</span>
+        </button>
+        <button class="spice-btn" data-level="extra-hot">
+          Extra Hot <span class="pepper-icon">🌶️</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── SECTION 6: Select Sauces ── -->
+    <div class="customize-section">
+      <h3 class="section-title">Select Sauces</h3>
+      <div class="checkbox-group">
+        <label class="checkbox-item">
+          <input type="checkbox" name="sauces" value="mayo" />
+          <span class="checkbox-box"></span>
+          Mayo
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="sauces" value="chipotle" />
+          <span class="checkbox-box"></span>
+          Chipotle
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="sauces" value="bbq" />
+          <span class="checkbox-box"></span>
+          BBQ
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="sauces" value="hot-sauce" />
+          <span class="checkbox-box"></span>
+          Hot Sauce
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="sauces" value="tahini" />
+          <span class="checkbox-box"></span>
+          Tahini
+        </label>
+      </div>
+    </div>
+
+    <!-- ── SECTION 7: Quantity ── -->
+    <div class="customize-section qty-section">
+      <h3 class="section-title">Quantity</h3>
+      <div class="qty-row">
+        <button class="qty-btn" id="qty-minus" type="button">−</button>
+        <div class="qty-box"><span id="qty-display">1</span></div>
+        <button class="qty-btn" id="qty-plus" type="button">+</button>
+      </div>
+    </div>
+
+    <!-- ── CTA Buttons ── -->
+    <div class="cta-area">
+      <button class="btn-add-to-cart" id="add-to-cart-btn">
+        Add to Cart - <span id="cta-price">$17.99</span>
+      </button>
+      <a href="menu.html" class="btn-cancel">Cancel</a>
+    </div>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       HIGH SPICE WARNING MODAL (Bootstrap)
+  ═══════════════════════════════════════ -->
+  <div class="modal fade" id="spice-modal" tabindex="-1" aria-labelledby="spiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-box">
+        <p class="modal-text">
+          ⚠️ <strong>High Spice Level Warning</strong><br /><br />
+          You've selected a high spice level. This will be very hot!<br />
+          Are you sure you want to proceed?
+        </p>
+        <div class="modal-actions">
+          <button class="modal-btn modal-cancel" id="spice-cancel">Cancel</button>
+          <button class="modal-btn modal-confirm" id="spice-confirm">Yes, I'm sure</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
