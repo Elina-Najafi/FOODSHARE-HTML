@@ -11,7 +11,7 @@ Figma Link : https://www.figma.com/design/Vj41cmQkjJHGwiJRgiCUjP/Untitled?node-i
 ## Project Overview
 
 A responsive, multi-page restaurant ordering web app built from a Figma design.
-Stack: **HTML5 + CSS3 + Vanilla JavaScript** — no build tools, no dependencies. Open any file directly in a browser.
+Stack: **HTML5 + CSS3 + Bootstrap** — no build tools, no dependencies. Open any file directly in a browser.
 
 ---
 
